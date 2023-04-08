@@ -33,6 +33,16 @@ const getTenMostRecentlyUpdatedMovies=(req, res)=>{
         }
     })
 }
+const getTenMoviesByGenre=(req, res)=>{
+    console.log("getting movies...")
+    Movie.find({genre:[req.params.genre]}).limit(10).then((foundMovies)=>{
+        if(!foundMovies){
+            res.status(404).json({message: 'Cannot find movies'})
+        } else {
+            res.status(200).json(foundMovies)
+        }
+    })
+}
 const createMovie= async(title)=> {
     const response = await fetch(
         `http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}`
@@ -47,7 +57,7 @@ const createMovie= async(title)=> {
                 rated: data.Rated,
                 img: data.Poster,
                 year: data.Year,
-                genre: data.Genre,
+                genre: data.Genre.split(", "),
                 comments: [],
                 happinessScores: [],
                 avgHappiness: undefined
@@ -60,7 +70,7 @@ const createMovie= async(title)=> {
 }
 const showMovie=(req, res)=>{
     //If movie doesn't exist, try to find it on the api
-    Movie.findOne({title: req.params.title}).then(movie=>{
+    Movie.find({title: req.params.title}).then(movie=>{
         if (!movie){
             console.log("adding movie to mongo")
             createMovie(req.params.title).then(result=>{
@@ -82,5 +92,6 @@ module.exports={
     createMovie,
     getAllMovies,
     showMovie,
-    getTenMostRecentlyUpdatedMovies
+    getTenMostRecentlyUpdatedMovies,
+    getTenMoviesByGenre
 }
