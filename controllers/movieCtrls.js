@@ -41,7 +41,7 @@ const createMovie= async(title)=> {
                 genre: data.Genre,
                 comments: [],
                 happinessScores: [],
-                avgHappieness: undefined
+                avgHappiness: undefined
                 
         });
       return (movie);
