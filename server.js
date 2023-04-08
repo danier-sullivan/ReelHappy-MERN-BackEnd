@@ -4,23 +4,11 @@ const routes = require('./routes/index')
 const express=require('express');
 
 const app = express();
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 // add this - import middlware
 // const cors = require("cors");
 const PORT=process.env.PORT
 
-const MONGODB_URI = process.env.MONGODB_URI;
-mongoose.set("strictQuery", true) 
-mongoose.connect(MONGODB_URI,{
-    useNewURLParser: false,
-})
-
-
-const db = mongoose.connection
-
-db.on('error', (err) => console.log(err.message + ' is mongo not running?'));
-db.on('connected', () => console.log('mongo connected'));
-db.on('disconnected', () => console.log('mongo disconnected'));
 
 
 ///////////////////////////////
