@@ -23,7 +23,16 @@ const getAllMovies=(req, res)=>{
         }
      })
 }
-
+const getTenMostRecentlyUpdatedMovies=(req, res)=>{
+    console.log("getting movies...")
+    Movie.find({}).sort({updatedAt:-1}).limit(10).then((foundMovies)=>{
+        if(!foundMovies){
+            res.status(404).json({message: 'Cannot find movies'})
+        } else {
+            res.status(200).json(foundMovies)
+        }
+    })
+}
 const createMovie= async(title)=> {
     const response = await fetch(
         `http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}`
@@ -72,5 +81,6 @@ module.exports={
     deleteMovie,
     createMovie,
     getAllMovies,
-    showMovie
+    showMovie,
+    getTenMostRecentlyUpdatedMovies
 }
