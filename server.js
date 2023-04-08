@@ -4,9 +4,12 @@ const routes = require('./routes/index')
 const express=require('express');
 
 const app = express();
+// const mongoose = require('mongoose')
 // add this - import middlware
 // const cors = require("cors");
 const PORT=process.env.PORT
+
+
 
 ///////////////////////////////
 // MiddleWare
