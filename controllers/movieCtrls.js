@@ -33,6 +33,16 @@ const getTenMostRecentlyUpdatedMovies=(req, res)=>{
         }
     })
 }
+const getTenHappiestMovies=(req, res)=>{
+    console.log("getting movies...")
+    Movie.find({}).sort({avgHappiness:-1}).limit(10).then((foundMovies)=>{
+        if(!foundMovies){
+            res.status(404).json({message: 'Cannot find movies'})
+        } else {
+            res.status(200).json(foundMovies)
+        }
+    })
+}
 const getTenMoviesByGenre=(req, res)=>{
     console.log("getting movies...")
     Movie.find({genre:[req.params.genre]}).limit(10).then((foundMovies)=>{
@@ -70,6 +80,7 @@ const createMovie= async(title)=> {
     else return ({Error: "404 not found"})
       
 }
+//Stupid error: title must be capitalized to pull from mongo
 const showMovie=(req, res)=>{
     //If movie doesn't exist, try to find it on the api
     Movie.findOne({title: req.params.title}).then(movie=>{
@@ -96,5 +107,6 @@ module.exports={
     getAllMovies,
     showMovie,
     getTenMostRecentlyUpdatedMovies,
-    getTenMoviesByGenre
+    getTenMoviesByGenre,
+    getTenHappiestMovies
 }
