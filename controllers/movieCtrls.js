@@ -57,7 +57,9 @@ const createMovie= async(title)=> {
                 rated: data.Rated,
                 img: data.Poster,
                 year: data.Year,
-                genre: data.Genre.split(", "),
+                genre: data.Genre.split(", ").map((genre)=>{
+                    return genre.toLowerCase()
+                }),
                 comments: [],
                 happinessScores: [],
                 avgHappiness: undefined
@@ -70,8 +72,9 @@ const createMovie= async(title)=> {
 }
 const showMovie=(req, res)=>{
     //If movie doesn't exist, try to find it on the api
-    Movie.find({title: req.params.title}).then(movie=>{
+    Movie.findOne({title: req.params.title}).then(movie=>{
         if (!movie){
+            
             console.log("adding movie to mongo")
             createMovie(req.params.title).then(result=>{
                 res.status(201).json(result)
