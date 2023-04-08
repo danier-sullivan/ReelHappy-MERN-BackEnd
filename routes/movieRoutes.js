@@ -7,7 +7,7 @@ const {ratingCtrl}= require('../controllers/index')
 
 // ROUTES - METHODS //
 router.get('/', movieCtrl.getAllMovies)
-router.get("/recentlyUpdated", movieCtrl.getTenMostRecentlyUpdatedMovies)
+
 router.get('/:title', movieCtrl.showMovie)
 router.delete('/:title', movieCtrl.deleteMovie)
 
@@ -18,6 +18,10 @@ router.put("/:title/comments/:commentId/edit", commentCtrl.updateComment)
 
 //Rating Routes
 router.put('/:title/rating', ratingCtrl.addRating)
+
+//Browse Routes
+router.get('/browse/:genre', movieCtrl.getTenMoviesByGenre)
+router.get("/browse/recentlyUpdated", movieCtrl.getTenMostRecentlyUpdatedMovies)
 
 
 
