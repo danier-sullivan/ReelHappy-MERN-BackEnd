@@ -6,7 +6,7 @@ const express=require('express');
 const app = express();
 // const mongoose = require('mongoose')
 // add this - import middlware
-// const cors = require("cors");
+const cors = require("cors");
 const PORT=process.env.PORT
 
 
@@ -14,7 +14,7 @@ const PORT=process.env.PORT
 ///////////////////////////////
 // MiddleWare
 ////////////////////////////////
-// app.use(cors()); // to prevent cors errors, open access to all origins
+app.use(cors()); // to prevent cors errors, open access to all origins
 app.use(express.urlencoded({extended: true}))
 app.use(express.json()); // parse json bodies
 
