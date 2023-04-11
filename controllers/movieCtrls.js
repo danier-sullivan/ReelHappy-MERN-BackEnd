@@ -83,7 +83,7 @@ const createMovie= async(title)=> {
 //Stupid error: title must be capitalized to pull from mongo
 const showMovie=(req, res)=>{
     //If movie doesn't exist, try to find it on the api
-    Movie.findOne({title: req.params.title}).then(movie=>{
+    Movie.findOne({title: {$regex: req.params.title, $options: "i"}}).then(movie=>{
         if (!movie){
             
             console.log("adding movie to mongo")
