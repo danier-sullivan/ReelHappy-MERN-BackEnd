@@ -15,5 +15,5 @@ mongoose.connection
 
 
 module.exports = {
-    Movie: require('./Movie')
+    Movie: require('./movie')
 }

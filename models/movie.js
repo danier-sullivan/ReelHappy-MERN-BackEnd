@@ -11,6 +11,6 @@ const MovieSchema= new mongoose.Schema({
     avgHappiness: {type: Number}
 }, {timestamps: true});
 
-const Movie=mongoose.model("Movie", MovieSchema);
-module.exports=Movie;
+const Movie = mongoose.model("Movie", MovieSchema);
+module.exports = Movie;
 
