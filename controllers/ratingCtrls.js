@@ -24,7 +24,7 @@ const addRating= (req, res)=>{
                 res.status(400).json({Message: 'Could not update movie'})
             } else {
                 console.log("setting avg")
-                let avg=calculateHappiness(updatedMovie.happinessScores)
+                let avg=Math.round(calculateHappiness(updatedMovie.happinessScores))
                 console.log(avg)
                 Movie.findOneAndUpdate({title: req.params.title}, {$set :{avgHappiness: avg}}).then((updatedMovie)=>{
                     res.status(200).json({Data: updatedMovie, Message: "Movie updated"})
