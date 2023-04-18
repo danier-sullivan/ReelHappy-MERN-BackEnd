@@ -24,6 +24,4 @@ router.get('/browse/:genre', movieCtrl.getTenMoviesByGenre)
 router.get("/browse/recentlyUpdated", movieCtrl.getTenMostRecentlyUpdatedMovies)
 router.get("/browse/happiest", movieCtrl.getTenHappiestMovies)
 
-
-
 module.exports = router;
