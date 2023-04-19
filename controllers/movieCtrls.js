@@ -80,6 +80,17 @@ const createMovie= async(title)=> {
     else return ({Error: "404 not found"})
       
 }
+const findMultipleMovies = (req, res)=>{
+    Movie.find({title: {regex: req.params.title, $options: "i"}}.then(movies=>{
+        if (movies){
+            console.log("getting search results from mongo")
+            res.status(201).json(result)
+        }
+        else {
+            res.status(404).json
+        }
+    }))
+}
 //Stupid error: title must be capitalized to pull from mongo
 const showMovie=(req, res)=>{
     //If movie doesn't exist, try to find it on the api
@@ -88,6 +99,7 @@ const showMovie=(req, res)=>{
             
             console.log("adding movie to mongo")
             createMovie(req.params.title).then(result=>{
+                console.log(result)
                 res.status(201).json(result)
             })
             
