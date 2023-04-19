@@ -7,7 +7,7 @@ const {ratingCtrl}= require('../controllers/index')
 
 // ROUTES - METHODS //
 router.get('/', movieCtrl.getAllMovies)
-
+router.get("/api/:title", movieCtrl.searchAPIMultipleMovies)
 router.get('/:title', movieCtrl.showMovie)
 router.delete('/:title', movieCtrl.deleteMovie)
 
