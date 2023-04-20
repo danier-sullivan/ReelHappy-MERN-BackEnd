@@ -29,11 +29,7 @@ User Stories:
       
 Wireframes
     <img width="643" alt="Screenshot 2023-04-05 at 11 43 01 AM" src="https://user-images.githubusercontent.com/119551269/233232225-60f16df2-9267-454c-8c4c-28a540407164.png">
-<img width="639" alt="Screenshot 2023-04-05 at 11 43 21 AM" src="https://user-images.githubusercontent.com/119551269/233232290-62f0f1c2-ce64-48ec-9301-e05bb678e53d.png">
 <img width="638" alt="Screenshot 2023-04-05 at 7 11 17 PM" src="https://user-images.githubusercontent.com/119551269/233232338-8ed7820b-63da-4856-9593-7f6c5fbb786e.png">
 <img width="642" alt="Screenshot 2023-04-05 at 11 44 15 AM" src="https://user-images.githubusercontent.com/119551269/233232486-dc952f22-9620-475b-b682-ae93093b0638.png">
 <img width="635" alt="Screenshot 2023-04-05 at 11 44 27 AM" src="https://user-images.githubusercontent.com/119551269/233232530-41df9a56-6f59-473a-89f9-7c36500d251c.png">
 <img width="641" alt="Screenshot 2023-04-05 at 11 44 00 AM" src="https://user-images.githubusercontent.com/119551269/233232439-f66ea9c2-a2e0-4f15-860e-9f7b03c78987.png">
-
-A README.md file with explanations of the technologies used, the approach taken, unsolved problems, user stories, and notes to yourself so you can come back to your project later in the course and be able to pick up your train of thought, etc
-Have a link to your hosted working app in the README.md file in your github repo
